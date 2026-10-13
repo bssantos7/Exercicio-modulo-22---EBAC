@@ -27,44 +27,11 @@ public enum DiaSemana {
     }
 
     public static DiaSemana converteDia(int dia){
-        boolean continua=true;
-        DiaSemana novoDia=DiaSemana.Domingo;
-        do{
-            switch (dia) {
-                case 1:
-                    novoDia=DiaSemana.Domingo;
-                    continua=false;
-                    break;
-                case 2:
-                    novoDia=DiaSemana.Segunda;
-                    continua=false;
-                    break;
-                case 3:
-                    novoDia=DiaSemana.Terca;
-                    continua=false;
-                    break;
-                case 4:
-                    novoDia=DiaSemana.Quarta;
-                    continua=false;
-                    break;
-                case 5:
-                    novoDia=DiaSemana.Quinta;
-                    continua=false;
-                    break;
-                case 6:
-                    novoDia=DiaSemana.Sexta;
-                    continua=false;
-                    break;
-                case 7:
-                    novoDia=DiaSemana.Sábado;
-                    continua=false;
-                    break;
-                default:
-                    System.out.println("Numero invalido. Tente Novamente");
-                    continua=true;
-                    break;
+        for(DiaSemana novoDia:DiaSemana.values()){
+            if(novoDia.getValor()==dia){
+                return novoDia;
             }
-        }while(continua==true);
-        return novoDia;
+        }
+        throw new IllegalArgumentException("Numero invalido"+dia);
     }
 }
